@@ -1,5 +1,4 @@
 import random
-import json
 
 MIN_DEMAND = 10
 MAX_DEMAND = 50
@@ -10,6 +9,7 @@ MIN_CONSTRUCTION_COST = 1000
 MAX_CONSTRUCTION_COST = 5000
 MIN_REVENUE = 10
 MAX_REVENUE = 100
+DATA_PATH = "deterministic-problem/location-alocation/location-alocation.dat"
 
 
 def generate_data(num_clients=6, num_sites=3, seed=None):
@@ -61,16 +61,28 @@ def generate_data(num_clients=6, num_sites=3, seed=None):
     return data
 
 
-def save_data(data, file_path):
-    """
-    Save data to a file in JSON format.
-
-    Args:
-        data (dict): The data to save.
-        file_path (str): The path of the file where data should be saved.
-    """
+def save_as_dat(data, file_path):
     with open(file_path, "w") as file:
-        json.dump(data, file, indent=4)
+        file.write(f"NbClients = {len(data['demands'])};\n")
+        file.write(f"NbSites = {len(data['capacities'])};\n\n")
+
+        file.write("Demands = [ " + ", ".join(map(str, data["demands"])) + " ];\n")
+
+        file.write(
+            "Capacities = [ " + ", ".join(map(str, data["capacities"])) + " ];\n"
+        )
+
+        file.write(
+            "ConstructionCosts = [ "
+            + ", ".join(map(str, data["construction_costs"]))
+            + " ];\n"
+        )
+
+        file.write("Revenues = [\n")
+        for revenue_row in data["revenues"]:
+            file.write("  [ " + ", ".join(map(str, revenue_row)) + " ],\n")
+        file.write("];\n")
+
     print(f"Data saved to {file_path}")
 
 
@@ -78,3 +90,4 @@ if __name__ == "__main__":
     data = generate_data(num_clients=6, num_sites=3, seed=42)
     print("Generated Data:")
     print(data)
+    save_as_dat(data, file_path=DATA_PATH)
