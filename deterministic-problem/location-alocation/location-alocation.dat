@@ -1,9 +1,9 @@
-NbClients = 6;
+NbClient = 6;
 NbSites = 3;
 
 Demands = [ 45, 22, 44, 36, 24, 38 ];
 Capacities = [ 178, 66, 171 ];
-ConstructionCosts = [ 3069, 3465, 1108 ];
+CostSite = [ 3069, 3465, 1108 ];
 Revenues = [
   [ 91, 24, 13 ],
   [ 45, 41, 38 ],

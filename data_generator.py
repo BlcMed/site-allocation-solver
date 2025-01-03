@@ -63,7 +63,7 @@ def generate_data(num_clients=6, num_sites=3, seed=None):
 
 def save_as_dat(data, file_path):
     with open(file_path, "w") as file:
-        file.write(f"NbClients = {len(data['demands'])};\n")
+        file.write(f"NbClient = {len(data['demands'])};\n")
         file.write(f"NbSites = {len(data['capacities'])};\n\n")
 
         file.write("Demands = [ " + ", ".join(map(str, data["demands"])) + " ];\n")
@@ -73,7 +73,7 @@ def save_as_dat(data, file_path):
         )
 
         file.write(
-            "ConstructionCosts = [ "
+            "CostSite = [ "
             + ", ".join(map(str, data["construction_costs"]))
             + " ];\n"
         )

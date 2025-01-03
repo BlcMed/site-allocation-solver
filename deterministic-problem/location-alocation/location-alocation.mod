@@ -16,7 +16,7 @@ float Capacities[Clients] = ...;
 float CostSite[Sites] = ...;
 float Revenues[Clients][Sites] = ...;
 
-dvar int+ s[Clients];
+dvar int+ s[Sites];
 dvar int+ x[Clients][Sites];
 
 maximize 

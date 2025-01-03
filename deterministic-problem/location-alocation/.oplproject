@@ -3,7 +3,18 @@
     <version>1.0</version>
     	
     <configs>
-	</configs>
+        		
+        <config default="true" name="Configuration1" category="opl">
+            			
+            <ref name="location-alocation.mod" type="model">
+			</ref>
+            			
+            <ref name="location-alocation.dat" type="data">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
     	
 
 </project>
