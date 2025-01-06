@@ -36,3 +36,6 @@ subject to {
     ct3:
         sum(j in Sites) x[i][j] == 1;
 }
+
+
+

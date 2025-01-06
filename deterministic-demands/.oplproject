@@ -6,10 +6,10 @@
         		
         <config default="true" name="Configuration1" category="opl">
             			
-            <ref name="location-alocation.mod" type="model">
+            <ref name="deterministic-demands.mod" type="model">
 			</ref>
             			
-            <ref name="location-alocation.dat" type="data">
+            <ref name="deterministic-demands.dat" type="data">
 			</ref>
             		
         </config>

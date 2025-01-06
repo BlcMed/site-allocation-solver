@@ -9,7 +9,7 @@ MIN_CONSTRUCTION_COST = 1000
 MAX_CONSTRUCTION_COST = 5000
 MIN_REVENUE = 10
 MAX_REVENUE = 100
-DATA_PATH = "deterministic-problem/location-alocation/location-alocation.dat"
+DATA_PATH = "deterministic-demands/deterministic-demands.dat"
 
 
 def generate_data(num_clients=6, num_sites=3, seed=None):
