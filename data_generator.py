@@ -2,8 +2,6 @@ import random
 
 MIN_DEMAND = 10
 MAX_DEMAND = 50
-MIN_CAPACITY = 50
-MAX_CAPACITY = 150
 CAPACITY_RANGE = 100
 MIN_CONSTRUCTION_COST = 1000
 MAX_CONSTRUCTION_COST = 5000
@@ -38,24 +36,23 @@ def generate_data(num_clients=6, num_sites=3, seed=None):
         for _ in range(num_sites)
     ]
     demands = [random.randint(MIN_DEMAND, MAX_DEMAND) for _ in range(num_clients)]
-    capacities = [random.randint(MIN_CAPACITY, MAX_CAPACITY) for _ in range(num_sites)]
+    total_demand = sum(demands)
+    min_total_capacity = int(total_demand / num_sites)
+    capacities = []
+    total_capacity = 0
 
-    # Divide clients among sites and calculate minimum capacities (to assure feasibility)
-    clients_per_site = [[] for _ in range(num_sites)]
-    for i, client_demand in enumerate(demands):
-        site_index = i % num_sites
-        clients_per_site[site_index].append(client_demand)
-
-    min_capacities = [sum(site_clients) for site_clients in clients_per_site]
-    capacities = [
-        min_cap + random.randint(0, CAPACITY_RANGE) for min_cap in min_capacities
-    ]
+    while total_capacity < total_demand:
+        capacities = [
+            random.randint(min_total_capacity, CAPACITY_RANGE) for _ in range(num_sites)
+        ]
+        total_capacity = sum(capacities)
 
     data = {
         "demands": demands,
         "capacities": capacities,
         "construction_costs": construction_costs,
         "revenues": revenues,
+        "max_demands": total_capacity + 1,
     }
 
     return data
@@ -64,7 +61,8 @@ def generate_data(num_clients=6, num_sites=3, seed=None):
 def save_as_dat(data, file_path):
     with open(file_path, "w") as file:
         file.write(f"NbClient = {len(data['demands'])};\n")
-        file.write(f"NbSites = {len(data['capacities'])};\n\n")
+        file.write(f"NbSites = {len(data['capacities'])};\n")
+        file.write(f"MaxDemands = {data['max_demands']} ;\n\n")
 
         file.write("Demands = [ " + ", ".join(map(str, data["demands"])) + " ];\n")
 
@@ -73,9 +71,7 @@ def save_as_dat(data, file_path):
         )
 
         file.write(
-            "CostSite = [ "
-            + ", ".join(map(str, data["construction_costs"]))
-            + " ];\n"
+            "CostSite = [ " + ", ".join(map(str, data["construction_costs"])) + " ];\n"
         )
 
         file.write("Revenues = [\n")
