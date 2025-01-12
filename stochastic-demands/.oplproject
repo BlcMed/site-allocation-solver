@@ -4,12 +4,22 @@
     	
     <configs>
         		
-        <config default="true" name="Configuration1" category="opl">
+        <config default="true" name="DeterministicEquivalentConfiguration" category="opl">
             			
             <ref name="stochastic-demands.mod" type="model">
 			</ref>
             			
             <ref name="stochastic-demands.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="WaitAndSeaConfiguration" category="opl">
+            			
+            <ref name="stochastic-demands.dat" type="data">
+			</ref>
+            			
+            <ref name="wait-and-see.mod" type="model">
 			</ref>
             		
         </config>
