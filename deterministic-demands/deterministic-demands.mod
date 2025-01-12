@@ -33,5 +33,12 @@ subject to {
         sum(j in Sites) x[i][j] == Demands[i];
 }
 
-
+execute {
+  var f=new IloOplOutputFile("results.txt");
+  f.writeln("Selected Sites:");
+  f.writeln(s);
+  f.writeln("Client-Site Allocations:");
+  f.writeln(x);
+  f.close();
+}
 

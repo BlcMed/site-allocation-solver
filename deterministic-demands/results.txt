@@ -1,0 +1,9 @@
+Selected Sites:
+ [1 0 2]
+Client-Site Allocations:
+ [[45 0 0]
+         [17 0 5]
+         [0 0 44]
+         [0 0 36]
+         [24 0 0]
+         [0 0 38]]
