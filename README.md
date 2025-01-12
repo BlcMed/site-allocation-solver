@@ -6,8 +6,8 @@ This project implements a deterministic equivalent formulation (PDE) for stochas
 
 1. Clone the repository:  
    ```bash  
-   git clone <repository_url>  
-   cd <repository_name>  
+   git clone https://github.com/BlcMed/site-allocation-solver.git
+   cd site-allocation-solver/
    ```  
 
 ## Overview  
