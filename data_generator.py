@@ -52,7 +52,6 @@ def generate_deterministic_data(num_clients=6, num_sites=3, seed=None):
         "capacities": capacities,
         "construction_costs": construction_costs,
         "revenues": revenues,
-        "max_demands": total_capacity + 1,
     }
 
     return data
@@ -96,7 +95,6 @@ def save_deterministic_as_dat(data, file_path=DETERMINISTIC_DATA_PATH):
     with open(file_path, "w") as file:
         file.write(f"NbClient = {len(data['demands'])};\n")
         file.write(f"NbSites = {len(data['capacities'])};\n")
-        file.write(f"MaxDemands = {data['max_demands']} ;\n\n")
 
         file.write("Demands = [ " + ", ".join(map(str, data["demands"])) + " ];\n")
 

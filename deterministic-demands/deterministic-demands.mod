@@ -6,7 +6,6 @@
 
 int   NbClient = ...;
 int   NbSites = ...;
-int   MaxDemand = ...;
 
 range Clients = 1..NbClient;
 range Sites = 1..NbSites;
@@ -27,14 +26,10 @@ minimize
 subject to {
   forall(j in Sites)
     ct1:
-        sum(i in Clients) x[i][j] <= MaxDemand * s[j];
+        sum(i in Clients) x[i][j] <= Capacities[j] * s[j];
     
-  forall(j in Sites)
-    ct2:
-        sum(i in Clients) x[i][j] <= Capacities[j];
-
   forall(i in Clients)
-    ct3:
+    ct2:
         sum(j in Sites) x[i][j] == Demands[i];
 }
 

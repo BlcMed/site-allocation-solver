@@ -1,7 +1,5 @@
 NbClient = 6;
 NbSites = 3;
-MaxDemands = 235 ;
-
 Demands = [ 45, 22, 44, 36, 24, 38 ];
 Capacities = [ 86, 69, 79 ];
 CostSite = [ 3069, 3465, 1108 ];
