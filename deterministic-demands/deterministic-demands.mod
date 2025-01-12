@@ -6,7 +6,7 @@
 
 int   NbClient = ...;
 int   NbSites = ...;
-int   MaxDemand = ...:
+int   MaxDemand = ...;
 
 range Clients = 1..NbClient;
 range Sites = 1..NbSites;

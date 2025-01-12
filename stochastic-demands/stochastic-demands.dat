@@ -1,7 +1,6 @@
-num_clients = 6;
-num_sites = 3;
-
-revenue = [
+NbClient = 6;
+NbSites = 3;
+Revenues = [
   [ 99, 64, 53 ],
   [ 45, 29, 37 ],
   [ 53, 23, 21 ],
@@ -10,10 +9,11 @@ revenue = [
   [ 15, 68, 78 ],
 ];
 
-construction_cost = [ 1511, 4985, 4777 ];
+CostSite = [ 1511, 4985, 4777 ];
 
-demand_base = [ 34, 15, 45, 28, 50, 49 ];
-demand_lower = [ 27, 12, 36, 22, 40, 39 ];
-demand_upper = [ 40, 18, 54, 33, 60, 58 ];
+DemandsBase = [ 34, 15, 45, 28, 50, 49 ];
+DemandsLower = [ 27, 12, 36, 22, 40, 39 ];
+DemandsUpper = [ 40, 18, 54, 33, 60, 58 ];
 
-capacities = [ 242, 297, 199 ];
+Probabilities = [ 0.2, 0.45, 0.35 ];
+Capacities = [ 242, 297, 199 ];
