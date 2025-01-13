@@ -1,0 +1,16 @@
+Objective Value, EV:
+-9695
+
+EEV:
+-9695
+
+Selected Sites:
+ [1 0 0]
+
+Client-Site Allocations:
+ [[33 0 0]
+         [15 0 0]
+         [44 0 0]
+         [27 0 0]
+         [49 0 0]
+         [48 0 0]]
