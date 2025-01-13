@@ -1,0 +1,41 @@
+WaitAndSee:
+7286.3
+
+Scenario 1 (Base Demands):
+Objective Value:
+6963
+Selected Sites:
+ [1 0 0]
+Client-Site Allocations:
+ [[45 0 0]
+         [22 0 0]
+         [44 0 0]
+         [36 0 0]
+         [24 0 0]
+         [38 0 0]]
+
+Scenario 2 (Low Demands):
+Objective Value:
+9370
+Selected Sites:
+ [1 0 0]
+Client-Site Allocations:
+ [[36 0 0]
+         [17 0 0]
+         [35 0 0]
+         [28 0 0]
+         [19 0 0]
+         [30 0 0]]
+
+Scenario 3 (High Demands):
+Objective Value:
+4792
+Selected Sites:
+ [1 0 0]
+Client-Site Allocations:
+ [[54 0 0]
+         [26 0 0]
+         [52 0 0]
+         [43 0 0]
+         [28 0 0]
+         [45 0 0]]

@@ -1,4 +1,4 @@
-DataVersion = "stochastic-demands";
+DataVersion = "low-variance";
  
 NbClient = 6;
 NbSites = 3;
@@ -14,8 +14,8 @@ Revenues = [
 CostSite = [ 3069, 3465, 1108 ];
 
 DemandsBase = [ 45, 22, 44, 36, 24, 38 ];
-DemandsLower = [ 36, 17, 35, 28, 19, 30 ];
-DemandsUpper = [ 54, 26, 52, 43, 28, 45 ];
+DemandsLower = [ 42, 20, 41, 34, 22, 36 ];
+DemandsUpper = [ 47, 23, 46, 37, 25, 39 ];
 
 Probabilities = [ 0.2, 0.45, 0.35 ];
 Capacities = [ 300, 221, 151 ];

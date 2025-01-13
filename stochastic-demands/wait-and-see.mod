@@ -1,3 +1,5 @@
+string DataVersion = ...;
+
 int NbClient = ...; 
 int NbSites = ...;
 
@@ -40,7 +42,7 @@ subject to {
 }
 
 execute {
-  var f=new IloOplOutputFile("wait-and-see-results.txt");
+  var f=new IloOplOutputFile(DataVersion + "-wait-and-see-results.txt");
   f.writeln("WaitAndSee:");
   f.writeln(WaitAndSee);
   

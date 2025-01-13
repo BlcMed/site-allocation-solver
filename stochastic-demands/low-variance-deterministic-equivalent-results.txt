@@ -1,0 +1,28 @@
+Objective Value:
+-7190.3
+
+Selected Sites:
+ [1 1 1]
+
+Client-Site Allocations:
+Scenario 1 (Base Demands):
+ [[45 0 0]
+         [0 22 0]
+         [0 0 44]
+         [36 0 0]
+         [24 0 0]
+         [0 38 0]]
+Scenario 2 (Low Demands):
+ [[42 0 0]
+         [8 12 0]
+         [0 0 41]
+         [14 0 20]
+         [22 0 0]
+         [0 36 0]]
+Scenario 3 (High Demands):
+ [[47 0 0]
+         [0 23 0]
+         [0 0 46]
+         [37 0 0]
+         [25 0 0]
+         [0 39 0]]

@@ -1,4 +1,4 @@
-DataVersion = "stochastic-demands";
+DataVersion = "high-variance";
  
 NbClient = 6;
 NbSites = 3;

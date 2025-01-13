@@ -1,3 +1,5 @@
+string DataVersion = ...;
+
 int   NbClient = ...;
 int   NbSites = ...;
 
@@ -45,7 +47,7 @@ subject to {
 }
 
 execute {
-  var f=new IloOplOutputFile("EEV-results.txt");
+  var f=new IloOplOutputFile(DataVersion + "-EEV-results.txt");
   f.writeln("Objective Value, EV:");
   f.writeln(ObjectiveValue);
 

@@ -9,7 +9,8 @@ MIN_REVENUE = 10
 MAX_REVENUE = 100
 MIN_CAPACITY, MAX_CAPACITY = 150, 300
 DETERMINISTIC_DATA_PATH = "deterministic-demands/deterministic-demands.dat"
-STOCHASTIC_DATA_PATH = "stochastic-demands/stochastic-demands.dat"
+STOCHASTIC_DATA_PATH = "stochastic-demands/"
+# STOCHASTIC_DATA_PATH = "stochastic-demands/stochastic-demands.dat"
 
 
 def generate_deterministic_data(num_clients=6, num_sites=3, seed=None):
@@ -114,8 +115,12 @@ def save_deterministic_as_dat(data, file_path=DETERMINISTIC_DATA_PATH):
     print(f"Data saved to {file_path}")
 
 
-def save_stochastic_as_dat(data, file_path=STOCHASTIC_DATA_PATH):
+def save_stochastic_as_dat(
+    data, source_file_path=STOCHASTIC_DATA_PATH, file_name="stochastic-demands"
+):
+    file_path = source_file_path + file_name + ".dat"
     with open(file_path, "w") as file:
+        file.write(f'DataVersion = "{file_name}";\n \n')
         file.write(f"NbClient = {data['num_clients']};\n")
         file.write(f"NbSites = {data['num_sites']};\n")
 
@@ -161,7 +166,25 @@ if __name__ == "__main__":
     print(deterministic_data)
     save_deterministic_as_dat(deterministic_data)
 
-    stochastic_data = generate_stochastic_data(num_clients=6, num_sites=3, delta=0.2)
+    stochastic_data_high_variance = generate_stochastic_data(
+        num_clients=6, num_sites=3, delta=0.2, seed=42
+    )
+    stochastic_data = generate_stochastic_data(
+        num_clients=6, num_sites=3, delta=0.2, seed=42
+    )
     print("Generated Stochastic Data:")
     print(stochastic_data)
-    save_stochastic_as_dat(stochastic_data)
+    save_stochastic_as_dat(stochastic_data, file_name="stochastic-demands")
+
+    stochastic_data_low_variance = generate_stochastic_data(
+        num_clients=6, num_sites=3, delta=0.05, seed=42
+    )
+    print("Generated Stochastic Data:")
+    print(stochastic_data_low_variance)
+    save_stochastic_as_dat(stochastic_data_low_variance, file_name="low-variance")
+
+    print("Generated Stochastic Data:")
+    print(
+        stochastic_data_high_variance,
+    )
+    save_stochastic_as_dat(stochastic_data_high_variance, file_name="high-variance")
