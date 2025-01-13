@@ -22,10 +22,11 @@ int Capacities[1..NbSites] = ...;
 
 dvar boolean s[1..NbSites];
 dvar float+ x[1..3][1..NbClient][1..NbSites];
+dvar float ObjectiveValue;
+
 
 minimize 
-  sum(j in 1..NbSites) CostSite[j] * s[j] 
-  - sum(i in 1..NbClient, j in 1..NbSites, k in 1..3) Probabilities[k] * Revenues[i][j] * x[k][i][j];
+  ObjectiveValue;
 
 subject to {
   
@@ -37,14 +38,20 @@ subject to {
     sum(j in 1..NbSites) x[2][i][j] == DemandsLower[i];
     sum(j in 1..NbSites) x[3][i][j] == DemandsUpper[i];
   }
+  // Objective Value definition put in a variable to export it later
+  ObjectiveValue == sum(j in 1..NbSites) CostSite[j] * s[j]-sum(i in 1..NbClient, j in 1..NbSites, k in 1..3) Probabilities[k] * Revenues[i][j] * x[k][i][j];
+  
+    
 }
 
 execute {
   var f=new IloOplOutputFile("deterministic-equivalent-results.txt");
-  f.writeln("Selected Sites:");
-  f.writeln(s[1]);
+  f.writeln("Objective Value:");
+  f.writeln(ObjectiveValue);
+  f.writeln("\nSelected Sites:");
+  f.writeln(s);
 
-  f.writeln("Client-Site Allocations:");
+  f.writeln("\nClient-Site Allocations:");
   f.writeln("Scenario 1 (Base Demands):");
   f.writeln(x[1]);
 

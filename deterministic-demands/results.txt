@@ -1,5 +1,9 @@
+Objective Value:
+-10067
+
 Selected Sites:
  [1 0 2]
+
 Client-Site Allocations:
  [[45 0 0]
          [17 0 5]

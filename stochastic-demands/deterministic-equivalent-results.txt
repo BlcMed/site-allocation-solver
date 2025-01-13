@@ -1,5 +1,9 @@
+Objective Value:
+-4225.3
+
 Selected Sites:
-1
+ [1 1 1]
+
 Client-Site Allocations:
 Scenario 1 (Base Demands):
  [[34 0 0]

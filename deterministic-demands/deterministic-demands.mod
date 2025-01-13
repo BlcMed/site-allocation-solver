@@ -18,10 +18,10 @@ float Revenues[Clients][Sites] = ...;
 
 dvar int+ s[Sites];
 dvar int+ x[Clients][Sites];
+dvar float ObjectiveValue;
 
 minimize 
-    sum(j in Sites) CostSite[j] * s[j] -
-    sum(i in Clients, j in Sites) x[i][j] * Revenues[i][j] ;
+    ObjectiveValue;
 
 subject to {
   forall(j in Sites)
@@ -31,13 +31,17 @@ subject to {
   forall(i in Clients)
     ct2:
         sum(j in Sites) x[i][j] == Demands[i];
+  ObjectiveValue == sum(j in Sites) CostSite[j] * s[j] - sum(i in Clients, j in Sites) x[i][j] * Revenues[i][j] ;
+  
 }
 
 execute {
   var f=new IloOplOutputFile("results.txt");
-  f.writeln("Selected Sites:");
+  f.writeln("Objective Value:");
+  f.writeln(ObjectiveValue);
+  f.writeln("\nSelected Sites:");
   f.writeln(s);
-  f.writeln("Client-Site Allocations:");
+  f.writeln("\nClient-Site Allocations:");
   f.writeln(x);
   f.close();
 }
