@@ -1,4 +1,4 @@
-DataVersion = "high-variance";
+DataVersion = "high-var-demands";
  
 NbClient = 6;
 NbSites = 3;

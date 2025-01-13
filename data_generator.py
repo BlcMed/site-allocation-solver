@@ -9,7 +9,7 @@ MIN_REVENUE = 10
 MAX_REVENUE = 100
 MIN_CAPACITY, MAX_CAPACITY = 150, 300
 DETERMINISTIC_DATA_PATH = "deterministic-demands/deterministic-demands.dat"
-STOCHASTIC_DATA_PATH = "stochastic-demands/"
+STOCHASTIC_DATA_PATH = "stochastic-demands/data/"
 # STOCHASTIC_DATA_PATH = "stochastic-demands/stochastic-demands.dat"
 
 
@@ -181,10 +181,10 @@ if __name__ == "__main__":
     )
     print("Generated Stochastic Data:")
     print(stochastic_data_low_variance)
-    save_stochastic_as_dat(stochastic_data_low_variance, file_name="low-variance")
+    save_stochastic_as_dat(stochastic_data_low_variance, file_name="low-var-demands")
 
     print("Generated Stochastic Data:")
     print(
         stochastic_data_high_variance,
     )
-    save_stochastic_as_dat(stochastic_data_high_variance, file_name="high-variance")
+    save_stochastic_as_dat(stochastic_data_high_variance, file_name="high-var-demands")

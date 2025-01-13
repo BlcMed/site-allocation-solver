@@ -4,72 +4,92 @@
     	
     <configs>
         		
-        <config default="true" name="DeterministicEquivalentConfiguration" category="opl">
-            			
-            <ref name="stochastic-demands.mod" type="model">
-			</ref>
-            			
-            <ref name="stochastic-demands.dat" type="data">
-			</ref>
-            		
-        </config>
-        		
         <config default="false" name="WaitAndSeaConfiguration" category="opl">
             			
-            <ref name="stochastic-demands.dat" type="data">
+            <ref name="models/wait-and-see.mod" type="model">
 			</ref>
             			
-            <ref name="wait-and-see.mod" type="model">
+            <ref name="data/stochastic-demands.dat" type="data">
 			</ref>
             		
         </config>
         		
         <config default="false" name="ExpectedScenario" category="opl">
             			
-            <ref name="expected-value-problem.mod" type="model">
+            <ref name="models/expected-value-problem.mod" type="model">
 			</ref>
             			
-            <ref name="stochastic-demands.dat" type="data">
+            <ref name="data/stochastic-demands.dat" type="data">
 			</ref>
             		
         </config>
         		
         <config default="false" name="WaitAndSeeLowVariance" category="opl">
             			
-            <ref name="wait-and-see.mod" type="model">
+            <ref name="models/wait-and-see.mod" type="model">
 			</ref>
             			
-            <ref name="low-variance.dat" type="data">
+            <ref name="data/low-var-demands.dat" type="data">
 			</ref>
             		
         </config>
         		
         <config default="false" name="WaitAndSeeHighVariance" category="opl">
             			
-            <ref name="wait-and-see.mod" type="model">
+            <ref name="models/wait-and-see.mod" type="model">
 			</ref>
             			
-            <ref name="high-variance.dat" type="data">
+            <ref name="data/high-var-demands.dat" type="data">
 			</ref>
             		
         </config>
         		
         <config default="false" name="StochasticSolutionLowVariance" category="opl">
             			
-            <ref name="low-variance.dat" type="data">
+            <ref name="models/deterministic-equivalent.mod" type="model">
 			</ref>
             			
-            <ref name="stochastic-demands.mod" type="model">
+            <ref name="data/low-var-demands.dat" type="data">
 			</ref>
             		
         </config>
         		
         <config default="false" name="StochasticSolutionHighVariance" category="opl">
             			
-            <ref name="high-variance.dat" type="data">
+            <ref name="models/deterministic-equivalent.mod" type="model">
 			</ref>
             			
-            <ref name="stochastic-demands.mod" type="model">
+            <ref name="data/high-var-demands.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="true" name="StochasticSolution" category="opl">
+            			
+            <ref name="models/deterministic-equivalent.mod" type="model">
+			</ref>
+            			
+            <ref name="data/stochastic-demands.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="ExpectedScenarioLowVariance" category="opl">
+            			
+            <ref name="models/expected-value-problem.mod" type="model">
+			</ref>
+            			
+            <ref name="data/low-var-demands.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="ExpectedScenarioHighVariance" category="opl">
+            			
+            <ref name="models/expected-value-problem.mod" type="model">
+			</ref>
+            			
+            <ref name="data/high-var-demands.dat" type="data">
 			</ref>
             		
         </config>

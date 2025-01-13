@@ -48,7 +48,7 @@ subject to {
 
 execute {
 
-  var f=new IloOplOutputFile(DataVersion + "-deterministic-equivalent-results.txt");
+  var f=new IloOplOutputFile("../results/" + DataVersion + "-deterministic-equivalent-results.txt");
   f.writeln("Objective Value:");
   f.writeln(ObjectiveValue);
   f.writeln("\nSelected Sites:");

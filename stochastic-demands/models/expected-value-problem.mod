@@ -47,7 +47,7 @@ subject to {
 }
 
 execute {
-  var f=new IloOplOutputFile(DataVersion + "-EEV-results.txt");
+  var f=new IloOplOutputFile("../results/" + DataVersion + "-EEV-results.txt");
   f.writeln("Objective Value, EV:");
   f.writeln(ObjectiveValue);
 
