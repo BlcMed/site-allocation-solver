@@ -16,10 +16,10 @@ int Capacities[1..NbSites] = ...;
 
 dvar boolean s[1..3][1..NbSites];
 dvar float+ x[1..3][1..NbClient][1..NbSites];
-
+dvar float ObjectiveValue[1..3];
+dvar float WaitAndSee;
 minimize
-  sum(j in 1..NbSites, k in 1..3) CostSite[j] * s[k][j]
-  - sum(i in 1..NbClient, j in 1..NbSites, k in 1..3) Probabilities[k] * Revenues[i][j] * x[k][i][j];
+  WaitAndSee;
 
 subject to {
   
@@ -31,23 +31,38 @@ subject to {
     sum(j in 1..NbSites) x[2][i][j] == DemandsLower[i];
     sum(j in 1..NbSites) x[3][i][j] == DemandsUpper[i];
   }
+  // Objective Values
+  forall(k in 1..3){
+    ObjectiveValue[k] == sum(i in 1..NbClient, j in 1..NbSites) (CostSite[j] * s[k][j] - Revenues[i][j] * x[k][i][j]);
+  }
+  // Wait&See as the weighted average 
+  WaitAndSee == sum(k in 1..3) Probabilities[k] * ObjectiveValue[k];
 }
 
 execute {
   var f=new IloOplOutputFile("wait-and-see-results.txt");
-  f.writeln("Scenario 1 (Base Demands):");
+  f.writeln("WaitAndSee:");
+  f.writeln(WaitAndSee);
+  
+  f.writeln("\nScenario 1 (Base Demands):");
+  f.writeln("Objective Value:");
+  f.writeln(ObjectiveValue[1]);
   f.writeln("Selected Sites:");
   f.writeln(s[1]);
   f.writeln("Client-Site Allocations:");
   f.writeln(x[1]);
 
-  f.writeln("Scenario 2 (Low Demands):");
+  f.writeln("\nScenario 2 (Low Demands):");
+  f.writeln("Objective Value:");
+  f.writeln(ObjectiveValue[2]);
   f.writeln("Selected Sites:");
   f.writeln(s[2]);
   f.writeln("Client-Site Allocations:");
   f.writeln(x[2]);
 
-  f.writeln("Scenario 3 (High Demands):");
+  f.writeln("\nScenario 3 (High Demands):");
+  f.writeln("Objective Value:");
+  f.writeln(ObjectiveValue[3]);
   f.writeln("Selected Sites:");
   f.writeln(s[3]);
   f.writeln("Client-Site Allocations:");
